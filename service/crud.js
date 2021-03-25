@@ -4,7 +4,10 @@ const fs = require('fs');
 
 exports.addProduct = (req, res) => {
     // testing body-parser works properly
-    // console.log(req.body);
+    // console.log(req.body.name);
+    // console.log(req.body.price);
+    // console.log(req.body.description);
+    // console.log(req.files.image_filename);
 
     let data = {
         name: req.body.name,
@@ -13,7 +16,7 @@ exports.addProduct = (req, res) => {
     };
 
     if (req.files){
-        let file = req.files.product_image;
+        let file = req.files.image_filename;
         let extension = file.name.split('.');
         extension = extension[extension.length - 1];
         let filename = `${uniqid()}.${extension}`;
@@ -89,7 +92,7 @@ exports.updateProduct = (req,res) => {
         fs.unlinkSync(`./assets/images/${result[0].image_filename}`);
         });
 
-        let file = req.files.product_image;
+        let file = req.files.image_filename;
         let extension = file.name.split('.');
         extension = extension[extension.length - 1];
         let filename = `${uniqid()}.${extension}`;

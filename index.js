@@ -1,5 +1,6 @@
 const express = require ('express');
 const app = express();
+app.use('/assets', express.static('assets'));
 
 const cors = require('cors');
 app.use(cors());
@@ -14,8 +15,4 @@ app.use(fileUpload());
 const routes = require('./routes');
 app.use('/', routes)
 
-const fs = require('fs');
-const { platform } = require('os');
-
-
-app.listen(3000);
+app.listen(3004);
