@@ -1,0 +1,1 @@
+exports.secretKey = 'abcdefghijklmn123456789';
